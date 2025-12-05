@@ -1,0 +1,3 @@
+FONCTION chiffrement-cesar(CHAINE message, ENTIER cle): CHAINE
+
+RETOURNER message_chiffre
