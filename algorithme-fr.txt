@@ -1,3 +1,25 @@
 FONCTION chiffrement-cesar(CHAINE message, ENTIER cle): CHAINE
 
-RETOURNER message_chiffre
+	VARIABLE taille_alphabet: ENTIER, message_chiffrer: CHAINE, taille_message: ENTIER
+		 premier_caractere: CHAINE, caractere_courant: CHAINE, compteur: ENTIER
+
+	cle <-- cle % taille_alphabet
+
+	SI cle < 0 ALORS
+		cle <-- cle + taille_alphabet
+	FIN SI
+
+	taille_message <-- LONGUEUR(message)
+	message_chiffrer <-- ""
+
+	POUR compteur DE 1 A taille_message FAIRE
+		SI est_alphabetique(message[compteur]) ALORS
+			premier_caractere <-- 'A' ou 'a'
+			caractere_courant <-- (message[compteur] - premier_caractere + cle) % taille_alphabet + premier_caractere
+			message_chiffrer <-- message_chiffrer + caractere_courant
+		SINON
+			message_chiffrer <-- message[compteur]
+		FIN SI
+	FIN POUR
+
+RETOURNER message_chiffrer
