@@ -8,6 +8,8 @@ function encrypt(string $message, int $key): string
     $encrypted_message = "";
     $message_length = strlen($message);
 
+    $key = $key % $alphabet;
+
     if($key < 0){
         $key = $key + $alphabet;
     }
