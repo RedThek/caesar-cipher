@@ -1,0 +1,23 @@
+FONCTION CaesarCipher (STRING message, INTEGER key): STRING
+    VARIABLE alphabet_length : INTEGER, encrypted_message : STRING, encrypted_character : STRING,
+             message_length : INTEGER, first_character : STRING, counter : INTEGER
+
+    key <-- key % alphabet_length
+
+    IF (key < 0) THEN
+        key <-- key + alphabet_length
+    END IF
+
+    message_length <-- LENGTH(message)
+    encrypted_message <-- ""
+
+    FOR counter FROM 1 to message_length DO
+        IF (isAlphabetic(message[counter])) THEN
+            first_character <-- 'a' OR 'A'
+            encrypted_character <-- (message[counter] - first_character + key) % alphabet_length + first_character
+            encrypted_message <-- encrypted_message + encrypted_character
+        ELSE
+            encrypted_message <-- message[counter]
+        END IF
+    END FOR
+END

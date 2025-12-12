@@ -17,17 +17,14 @@ int main() {
     return 0;
 }
 
-void encrypt(char* message, int key)
-{
+void encrypt(char* message, int key) {
     int alphabet = 26, message_length = strlen(message), base_character, current_character, encrypted_character;
 
     key = key % alphabet;
     if (key < 0) key = key + alphabet;
     
-    for (int i = 0; i < message_length; i++)
-    {
-        if (isalpha(message[i]))
-        {
+    for (int i = 0; i < message_length; i++) {
+        if (isalpha(message[i])) {
             if(islower(message[i])) base_character = 'a';
             if(isupper(message[i])) base_character = 'A';
             encrypted_character = (message[i] - base_character + key) % alphabet + base_character;
@@ -36,8 +33,7 @@ void encrypt(char* message, int key)
     }
 }
 
-void decrypt(char* message, int key)
-{
+void decrypt(char* message, int key) {
     int alphabet = 26;
     encrypt(message, alphabet - key);
 }
