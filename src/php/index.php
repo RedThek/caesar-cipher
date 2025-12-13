@@ -1,6 +1,6 @@
 <?php
 
-$message = "Formation Video";
+$message = "Santa Barbara";
 $key = 3;
 function encrypt(string $message, int $key): string
 {
