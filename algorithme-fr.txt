@@ -3,6 +3,7 @@ FONCTION chiffrement-cesar(CHAINE message, ENTIER cle): CHAINE
 	VARIABLE taille_alphabet: ENTIER, message_chiffrer: CHAINE, taille_message: ENTIER
 		 premier_caractere: CHAINE, caractere_courant: CHAINE, compteur: ENTIER
 
+DEBUT
 	cle <-- cle % taille_alphabet
 
 	SI cle < 0 ALORS
@@ -22,4 +23,11 @@ FONCTION chiffrement-cesar(CHAINE message, ENTIER cle): CHAINE
 		FIN SI
 	FIN POUR
 
-RETOURNER message_chiffrer
+	RETOURNER message_chiffrer
+FIN
+
+FONCTION dechiffrement-cesar(CHAINE message, ENTIER cle): CHAINE
+	VARIABLE taille_alphabet: ENTIER
+DEBUT
+	RETOURNER chiffrement-cesar(message, taille_alphabet - cle)
+FIN
