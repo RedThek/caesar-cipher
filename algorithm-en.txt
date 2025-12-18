@@ -21,3 +21,7 @@ FONCTION CaesarCipher (STRING message, INTEGER key): STRING
         END IF
     END FOR
 END
+
+FONCTION CaesarDecipher (STRING message, INTEGER key): STRING
+    RETURN CaesarCipher(message, 26 - key)
+END
